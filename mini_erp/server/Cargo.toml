@@ -1,0 +1,16 @@
+[package]
+name = "server"
+version = "0.1.0"
+edition = "2024"
+
+[features]
+default = ["mod_sales", "mod_inventory"]
+mod_sales = ["dep:erp_sales"]
+mod_inventory = ["dep:erp_inventory"]
+
+[dependencies]
+erp_core = { path = "../core" }
+erp_sales = { path = "../modules/sales", optional = true }
+erp_inventory = { path = "../modules/inventory", optional = true }
+tokio = { workspace = true }
+anyhow = { workspace = true }
